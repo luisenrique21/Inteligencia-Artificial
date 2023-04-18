@@ -1,5 +1,6 @@
 import random
-
+import time
+inicio = time.time()
 
 def greedy_construction(items, capacity, alpha):
     sorted_items = sorted(items, key=lambda x: x[1] / x[2], reverse=True)
@@ -58,13 +59,14 @@ def grasp(items, capacity, alpha, max_iter):
     return best_solution, best_value
 
 
-items = [(0, 55, 95), (1, 10, 4), (2, 47, 60),  (3, 5, 32), (4, 4 ,23), (5 ,50 ,72),
-         (6 ,8 ,80),(7 ,61 ,62), (8 ,85, 65), (9, 87, 46)]
+items = [(0, 6, 2), (1, 10, 4), (2, 12, 6),  (3, 13, 7)]
 
-capacity = 269
+capacity = 11
 alpha = 0.5
 max_iter = 1000
 
 solution, value = grasp(items, capacity, alpha, max_iter)
 print("Solution:", solution)
 print("Value:", value)
+fin = time.time()
+print("{0:.7f}".format(fin-inicio))
